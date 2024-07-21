@@ -1,0 +1,139 @@
+
+.navbar {
+  box-shadow: 0px 0px 5px black;
+  padding: 0rem 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  z-index: 1;
+}
+img {
+  height: 7rem;
+}
+.nav-links ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+.nav-links ul li {
+  position: relative;
+}
+.nav-links ul li::after {
+  position: absolute;
+  bottom: -1px;
+  left: 0px;
+  content: "";
+  border-bottom: 2px solid black;
+  width: 0%;
+}
+.nav-links ul li:hover::after {
+  width: 100%;
+  transition: 0.5s;
+}
+
+.navbar-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.navbar-right .search-bar {
+  display: flex;
+  align-items: center;
+  border: solid 1px rgb(0, 0, 0);
+  border-radius: 2rem;
+}
+.search-bar input {
+  font-size: 1.4rem;
+  outline: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+}
+.search-bar i {
+  font-size: 1.6rem;
+  background-color: rgba(173, 173, 173, 0.347);
+  padding: 0.5rem;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+.cart {
+  position: relative;
+}
+.cart i {
+    color: orangered;
+  font-size: 2rem;
+}
+.cart p {
+  position: absolute;
+  right: -10px;
+  top: -12px;
+  color: red;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.login-button button {
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  border: solid 1.5px orangered;
+  background-color: white;
+  color: orangered;
+}
+
+.login-button button:hover{
+    color: white;
+    background-color: orangered;
+}
+.navProfile{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.navProfile .user-logo img{
+  height: 2.5rem;
+  
+}
+
+.navProfile-dropdown{
+position: absolute;
+right: 0rem;
+top: 3rem;
+display: none;
+flex-direction: column;
+gap: 1rem;
+background-color: rgb(250, 250, 250);
+padding: 1rem;
+box-shadow: 0px 0px 2px black;
+} 
+.navProfile-dropdown .username{
+  font-size: 1.6rem;
+  color: red;
+}
+.navProfile-dropdown .navProfile-item{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 1.6rem;
+}
+.navProfile:hover .navProfile-dropdown{
+  display: flex;
+}
+
+@media (max-width:700px) {
+    .navbar{
+        padding: 0px 1rem;
+    }
+    .nav-links{
+        display: none;
+    }
+}
