@@ -34,9 +34,10 @@ const state = [
   "Uttarakhand",
   "West Bengal",
 ];
-const admintoken="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OWQwODk3MzIwZWJjOTdhMTc3MmFkYiIsImlhdCI6MTcyMTU2NzM4M30.Y04TO-a1xfuKYwveryPaUXAMyF0EVl0nXjyRExoLaOE"
+// const admintoken="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OWQwODk3MzIwZWJjOTdhMTc3MmFkYiIsImlhdCI6MTcyMTU2NzM4M30.Y04TO-a1xfuKYwveryPaUXAMyF0EVl0nXjyRExoLaOE"
+ 
 const AddProduct = () => {
-  const{ SERVER_URL}=useContext(StoreContext)
+  const{ SERVER_URL,admintoken}=useContext(StoreContext)
   const [images, setImages] = useState([]);
   const nameRef = useRef();
   const categoryRef = useRef();
@@ -51,27 +52,35 @@ const AddProduct = () => {
   // submit data
   const onSubmitFormhandler =  async(event) => {
     event.preventDefault();
-    const formData = new FormData();
-    formData.append("name", nameRef.current.value);
-    formData.append("category", categoryRef.current.value);
-    formData.append("description", descriptionRef.current.value);
-    formData.append("state", stateRef.current.value);
-    formData.append("price", JSON.stringify({
-      amount: priceAmountRef.current.value,
-      discount: priceDiscountRef.current.value,
-    }));
-    images.forEach((image)=>{
-      formData.append("images",image)
-    })
-    formData.append("stock",JSON.stringify({
-      availability:productAvailabilityRef.current.value,
-      quantity:productQuantityRef.current.value 
-    }))
-    formData.append("tags",tagRef.current.value);
-    const url=`${ SERVER_URL}/api/product/add-product`
-    // const url='http://localhost:5001/api/product/add-product'
-    const response =await axios.post(url,formData,{headers:{admintoken:admintoken}});
-    console.log(response)
+    if(admintoken){
+      const formData = new FormData();
+      formData.append("name", nameRef.current.value);
+      formData.append("category", categoryRef.current.value);
+      formData.append("description", descriptionRef.current.value);
+      formData.append("state", stateRef.current.value);
+      formData.append("price", JSON.stringify({
+        amount: priceAmountRef.current.value,
+        discount: priceDiscountRef.current.value,
+      }));
+      images.forEach((image)=>{
+        formData.append("images",image)
+      })
+      formData.append("stock",JSON.stringify({
+        availability:productAvailabilityRef.current.value,
+        quantity:productQuantityRef.current.value 
+      }))
+      formData.append("tags",tagRef.current.value);
+      const url=`${ SERVER_URL}/api/product/add-product`
+      const response =await axios.post(url,formData,{headers:{admintoken:admintoken}});
+      if(response.data.success){
+        alert("product added")
+      }
+   }
+   else{
+     alert("Please login")
+   }
+   
+
 
   };
   // image handler

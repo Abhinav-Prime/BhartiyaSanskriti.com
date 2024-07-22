@@ -1,0 +1,12 @@
+.blog {
+  margin-top: 7.4rem;
+  margin: 0rem 3rem;
+}
+
+
+.blog .blog-header{
+  font-size: 2rem;
+  padding: 5px;
+  color: orangered;
+  text-align: center;
+}

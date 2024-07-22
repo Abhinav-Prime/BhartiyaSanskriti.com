@@ -26,6 +26,40 @@
     background-color: rgb(255, 115, 0);
     color: white;
   }
+  .admin-info{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: solid 1.5px rgb(255, 106, 0);
+    padding: 0.5rem 1rem;
+    position: relative;
+    font-size: 1.4rem;
+  }
+  .admin-dropdown{
+    padding: 1rem;
+    box-shadow: 0px 0px 2px black;
+    position: absolute;
+    top: 3rem;
+    left: 0px;
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: rgba(211, 211, 211, 0.476);
+    font-size: 1.4rem;
+  }
+  .admin-info:hover .admin-dropdown{
+    cursor: pointer;
+   display: flex;
+  }
+  .admin-info:hover{
+    cursor: pointer;
+  }
+  .admin-dropdown-flex{
+    display: flex;
+    gap: 1rem;
+    
+  }
   @media (max-width:700px) {
     .sidebar .nav-sidebar{
         padding: 2px 4px;

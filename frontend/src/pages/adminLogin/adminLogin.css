@@ -2,10 +2,8 @@
     box-shadow: 0px 0px 3px black;
     display: flex;
     width: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    margin: 12rem auto;
+
   }
   .admin-left{
     display: grid;
